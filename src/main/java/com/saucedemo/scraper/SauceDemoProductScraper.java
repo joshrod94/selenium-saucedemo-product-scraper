@@ -11,7 +11,12 @@ public class SauceDemoProductScraper {
         driver.get("https://www.saucedemo.com/");
         //Create instances of the page classes
         LoginPage loginPage = new LoginPage(driver);
+        ProductPage productPage = new ProductPage(driver);
         //Login to the website
         loginPage.login();
+        //Scrape product details
+        productPage.scrapeProductDetails();
+        //Add products to the cart
+        productPage.addToCart();
     }
 }
