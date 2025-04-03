@@ -32,6 +32,10 @@ This project uses Selenium WebDriver with Java and Maven to log into [SauceDemo]
 
 4. Navigate to SauceDemoProductScraper.java and run the main method.
 
+## Login Info for SauceDemo
+- **Username:** standard_user
+- **Password:** secret_sauce
+
 ## Requirements
 
     Java 23 (or higher)
