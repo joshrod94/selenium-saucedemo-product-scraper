@@ -1,17 +1,26 @@
 # Selenium SauceDemo Product Scraper
 
-This project uses Selenium WebDriver with Java and Maven to log into [SauceDemo](https://www.saucedemo.com), scrape product information, and automate part of the purchase process. It simulates a realistic e-commerce flow and applies basic scraping and conditional logic.
+This project is a full end-to-end Selenium automation script using Java and Maven. It logs into the [SauceDemo](https://www.saucedemo.com) website, scrapes product data, filters and adds products to the cart based on price, completes the checkout process, and logs out of the session.
+
 
 ## Features
 
-- Logs into SauceDemo using standard credentials
-- Scrapes all product cards on the main page:
-   - Product name
-   - Product description
-   - Price
-- Prints each product's info to the terminal
-- Adds products under $20 to the cart
-- Proceeds to the cart and continues through the checkout process
+- Logs into the [SauceDemo](https://www.saucedemo.com) website
+- Scrapes all visible product data on the inventory page:
+    - Product name
+    - Description
+    - Price (parsed as `double`, excluding `$`)
+- Filters products under `$20` and adds them to the cart
+- Proceeds to the cart and through the full checkout process:
+    - Fills in personal information
+    - Handles and logs form errors if they occur
+    - Verifies confirmation message
+- Logs out after completing the purchase
+- Uses modular code and page-structured design:
+    - `LoginPage.java`
+    - `ProductPage.java`
+    - `CartPage.java`
+    - `LogOut.java`
 
 ## Technologies Used
 
@@ -19,6 +28,20 @@ This project uses Selenium WebDriver with Java and Maven to log into [SauceDemo]
 - Selenium WebDriver
 - Maven
 - IntelliJ IDEA
+
+## Project Structure
+
+```
+src
+└── main
+    └── java
+        └── com.saucedemo.scraper
+            ├── LoginPage.java
+            ├── ProductPage.java
+            ├── CartPage.java
+            ├── LogOut.java
+            └── SauceDemoProductScraper.java (main class)
+```
 
 ## Quick Start
 
@@ -28,13 +51,28 @@ This project uses Selenium WebDriver with Java and Maven to log into [SauceDemo]
 
 2. Open in IntelliJ (or your IDE of choice).
 
-3. Let Maven load dependencies.
+3. Let Maven import dependencies from `pom.xml`
 
-4. Navigate to SauceDemoProductScraper.java and run the main method.
+4. Navigate to:
+   ```
+   src > main > java > com.saucedemo.scraper > SauceDemoProductScraper.java
+   ```
+5. Right-click on `SauceDemoProductScraper.java` and select `Run 'SauceDemoProductScraper.main()'`
 
 ## Login Info for SauceDemo
 - **Username:** standard_user
 - **Password:** secret_sauce
+
+## Outputs
+
+Sample terminal output includes:
+
+- Total products found
+- Each product's name, description, and price
+- Products added to cart
+- Checkout success or validation errors
+- Final confirmation message
+- Logout confirmation
 
 ## Requirements
 
