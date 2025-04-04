@@ -19,7 +19,7 @@ public class CartPage {
 
     //Method to navigate to the cart page
     public void navigateToCart() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className("shopping_cart_badge")));
         //Click on the cart icon
         driver.findElement(By.className("shopping_cart_link")).click();
