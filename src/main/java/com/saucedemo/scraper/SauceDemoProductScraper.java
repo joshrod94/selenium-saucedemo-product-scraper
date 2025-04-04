@@ -12,11 +12,14 @@ public class SauceDemoProductScraper {
         //Create instances of the page classes
         LoginPage loginPage = new LoginPage(driver);
         ProductPage productPage = new ProductPage(driver);
+        CartPage cartPage = new CartPage(driver);
         //Login to the website
         loginPage.login();
         //Scrape product details
         productPage.scrapeProductDetails();
         //Add products to the cart
         productPage.addToCart();
+        //Navigate to the cart and complete the checkout process
+        cartPage.navigateToCart();
     }
 }
