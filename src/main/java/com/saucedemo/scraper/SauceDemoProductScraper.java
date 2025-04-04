@@ -13,6 +13,7 @@ public class SauceDemoProductScraper {
         LoginPage loginPage = new LoginPage(driver);
         ProductPage productPage = new ProductPage(driver);
         CartPage cartPage = new CartPage(driver);
+        LogOut logOut = new LogOut(driver);
         //Login to the website
         loginPage.login();
         //Scrape product details
@@ -21,5 +22,9 @@ public class SauceDemoProductScraper {
         productPage.addToCart();
         //Navigate to the cart and complete the checkout process
         cartPage.navigateToCart();
+        //Log out of the website
+        logOut.logOut();
+        //Close the browser
+        driver.quit();
     }
 }
